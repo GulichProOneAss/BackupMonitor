@@ -1,0 +1,51 @@
+<Window x:Class="BackupMonitor.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="BackupMonitor — Вход в систему"
+        Height="560" Width="440"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}">
+
+    <Grid Margin="40">
+        <StackPanel VerticalAlignment="Center">
+            
+            <!-- Логотип -->
+            <material:PackIcon Kind="DatabaseShield" 
+                               Width="96" Height="96" 
+                               HorizontalAlignment="Center" 
+                               Margin="0 0 0 30"
+                               Foreground="{DynamicResource MaterialDesignPrimary}"/>
+
+            <TextBlock Text="BackupMonitor" 
+                       FontSize="32" 
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Center" 
+                       Margin="0 0 0 40"/>
+
+            <!-- Поля -->
+            <TextBox x:Name="ServerBox" 
+                     material:HintAssist.Hint="Адрес сервера (например: 127.0.0.1:5432)"
+                     Margin="0 8 0 16" FontSize="15"/>
+
+            <TextBox x:Name="UsernameBox" 
+                     material:HintAssist.Hint="Имя пользователя (postgres)"
+                     Margin="0 0 0 16" FontSize="15"/>
+
+            <PasswordBox x:Name="PasswordBox" 
+                         material:HintAssist.Hint="Пароль"
+                         Margin="0 0 0 30" FontSize="15"/>
+
+            <!-- Кнопка -->
+            <Button Content="Подключиться" 
+                    Height="56" 
+                    FontSize="17" 
+                    FontWeight="Medium"
+                    material:ButtonAssist.CornerRadius="12"
+                    Click="LoginButton_Click"/>
+            
+        </StackPanel>
+    </Grid>
+</Window>
