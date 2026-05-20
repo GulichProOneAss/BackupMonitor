@@ -11,9 +11,9 @@ namespace BackupMonitor.Views
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            // Пока заглушка — позже подключим реальную логику
-            MessageBox.Show("Проверка подключения к PostgreSQL...\n\n(в следующей версии будет полный функционал)", 
-                            "Подключение", 
+            // Пока заглушка — позже добавим реальную авторизацию
+            MessageBox.Show("Подключение к PostgreSQL...\n\n(в следующей версии будет полный функционал)", 
+                            "Вход", 
                             MessageBoxButton.OK, 
                             MessageBoxImage.Information);
         }

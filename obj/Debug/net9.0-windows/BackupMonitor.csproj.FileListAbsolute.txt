@@ -44,3 +44,5 @@ D:\BackupMonitor\obj\Debug\net9.0-windows\BackupMonitor.genruntimeconfig.cache
 D:\BackupMonitor\obj\Debug\net9.0-windows\ref\BackupMonitor.dll
 D:\BackupMonitor\obj\Debug\net9.0-windows\Views\MainWindow.baml
 D:\BackupMonitor\obj\Debug\net9.0-windows\Views\MainWindow.g.cs
+D:\BackupMonitor\obj\Debug\net9.0-windows\App.baml
+D:\BackupMonitor\obj\Debug\net9.0-windows\BackupMonitor.sourcelink.json

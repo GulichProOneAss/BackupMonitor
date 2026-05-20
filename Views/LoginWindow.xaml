@@ -12,7 +12,7 @@
     <Grid Margin="40">
         <StackPanel VerticalAlignment="Center">
             
-            <!-- Логотип -->
+            <!-- Иконка -->
             <material:PackIcon Kind="DatabaseShield" 
                                Width="96" Height="96" 
                                HorizontalAlignment="Center" 
@@ -20,19 +20,18 @@
                                Foreground="{DynamicResource MaterialDesignPrimary}"/>
 
             <TextBlock Text="BackupMonitor" 
-                       FontSize="32" 
-                       FontWeight="SemiBold"
-                       HorizontalAlignment="Center" 
-                       Margin="0 0 0 40"/>
+                       FontSize="32" FontWeight="SemiBold"
+                       HorizontalAlignment="Center" Margin="0 0 0 40"/>
 
-            <!-- Поля -->
+            <!-- Поля ввода -->
             <TextBox x:Name="ServerBox" 
-                     material:HintAssist.Hint="Адрес сервера (например: 127.0.0.1:5432)"
+                     material:HintAssist.Hint="Адрес сервера (127.0.0.1:5432)"
                      Margin="0 8 0 16" FontSize="15"/>
 
             <TextBox x:Name="UsernameBox" 
-                     material:HintAssist.Hint="Имя пользователя (postgres)"
-                     Margin="0 0 0 16" FontSize="15"/>
+                     material:HintAssist.Hint="Имя пользователя"
+                     Margin="0 0 0 16" FontSize="15"
+                     Text="postgres"/>
 
             <PasswordBox x:Name="PasswordBox" 
                          material:HintAssist.Hint="Пароль"
