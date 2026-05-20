@@ -1,67 +1,125 @@
 <Window x:Class="BackupMonitor.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="BackupMonitor" 
-        Height="720" Width="1280"
+        Title="BackupMonitor"
+        Height="680" Width="1180"
         WindowStartupLocation="CenterScreen"
-        Background="{DynamicResource MaterialDesignPaper}"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}">
+        ResizeMode="CanResizeWithGrip"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Window.Resources>
+        <Style x:Key="NoHoverButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Height" Value="52"/>
+            <Setter Property="Margin" Value="0 4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Window.Effect>
+        <DropShadowEffect Color="#000000" Direction="270" ShadowDepth="30" BlurRadius="55" Opacity="0.8"/>
+    </Window.Effect>
 
     <Grid>
-        <!-- Боковое меню -->
-        <Border Width="260" HorizontalAlignment="Left" 
-                Background="{DynamicResource MaterialDesignCardBackground}"
-                BorderThickness="0 0 1 0" BorderBrush="{DynamicResource MaterialDesignDivider}">
+        <Border Background="#111111" CornerRadius="32" Margin="35">
+            <Grid>
+                <!-- ФУНКЦИОНАЛЬНЫЕ КНОПКИ macOS -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="28 28 28 0">
+                    <Ellipse x:Name="CloseButton" Width="13" Height="13" Fill="#FF5F57" Margin="0 0 8 0" MouseLeftButtonDown="CloseButton_Click"/>
+                    <Ellipse x:Name="MinimizeButton" Width="13" Height="13" Fill="#FFBC2E" Margin="0 0 8 0" MouseLeftButtonDown="MinimizeButton_Click"/>
+                    <Ellipse x:Name="MaximizeButton" Width="13" Height="13" Fill="#28C840" MouseLeftButtonDown="MaximizeButton_Click"/>
+                </StackPanel>
 
-            <StackPanel Margin="20">
-                <TextBlock Text="BackupMonitor" 
-                           FontSize="28" FontWeight="SemiBold" 
-                           Margin="10 30 10 50"
-                           Foreground="{DynamicResource MaterialDesignPrimary}"/>
+                <!-- Боковое меню -->
+                <Border Width="260" HorizontalAlignment="Left" Background="#0F0F0F" CornerRadius="32 0 0 32">
+                    <StackPanel Margin="25 40 25 30">
+                        <TextBlock Text="BackupMonitor" 
+                                   FontSize="26" FontWeight="SemiBold" 
+                                   Margin="8 0 0 60"
+                                   Foreground="#00F0FF"/>
 
-                <Button Content="📊 Мониторинг" 
-                        Style="{StaticResource MaterialDesignFlatButton}" 
-                        Height="52" Margin="4" HorizontalAlignment="Stretch"/>
-                <Button Content="💾 Создать бэкап" 
-                        Style="{StaticResource MaterialDesignFlatButton}" 
-                        Height="52" Margin="4" HorizontalAlignment="Stretch"/>
-                <Button Content="🔄 Восстановление" 
-                        Style="{StaticResource MaterialDesignFlatButton}" 
-                        Height="52" Margin="4" HorizontalAlignment="Stretch"/>
-                <Button Content="⚙️ Настройки" 
-                        Style="{StaticResource MaterialDesignFlatButton}" 
-                        Height="52" Margin="4" HorizontalAlignment="Stretch"/>
-            </StackPanel>
+                        <Button Style="{StaticResource NoHoverButtonStyle}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="📊" FontSize="22" Foreground="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="1" Text="Мониторинг" FontSize="15" Margin="14 0 0 0" Foreground="#FFFFFF" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+
+                        <Button Style="{StaticResource NoHoverButtonStyle}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="💾" FontSize="22" Foreground="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="1" Text="Создать бэкап" FontSize="15" Margin="14 0 0 0" Foreground="#FFFFFF" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+
+                        <Button Style="{StaticResource NoHoverButtonStyle}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="🔄" FontSize="22" Foreground="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="1" Text="Восстановление" FontSize="15" Margin="14 0 0 0" Foreground="#FFFFFF" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+
+                        <Button Style="{StaticResource NoHoverButtonStyle}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="⚙️" FontSize="22" Foreground="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="1" Text="Настройки" FontSize="15" Margin="14 0 0 0" Foreground="#FFFFFF" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </Border>
+
+                <!-- Основная область -->
+                <Grid Margin="260 0 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="90"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Background="#1A1A1A" CornerRadius="0 32 0 0">
+                        <TextBlock Text="Мониторинг баз" 
+                                   FontSize="26" FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="#FFFFFF"/>
+                    </Border>
+
+                    <Border Grid.Row="1" Margin="35" Background="#161616" CornerRadius="24">
+                        <TextBlock Text="Здесь будет таблица бэкапов и мониторинг" 
+                                   FontSize="18" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center"
+                                   Foreground="#666666"/>
+                    </Border>
+                </Grid>
+            </Grid>
         </Border>
-
-        <!-- Основная область -->
-        <Grid Margin="260,0,0,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <!-- Заголовок -->
-            <Border Grid.Row="0" Height="70" Background="{DynamicResource MaterialDesignPrimary}">
-                <TextBlock Text="Мониторинг баз 1С" 
-                           FontSize="24" FontWeight="Medium"
-                           VerticalAlignment="Center" Margin="30 0 0 0"
-                           Foreground="White"/>
-            </Border>
-
-            <!-- Таблица -->
-            <DataGrid Grid.Row="1" Margin="30"
-                      AutoGenerateColumns="False"
-                      IsReadOnly="True"
-                      Background="{DynamicResource MaterialDesignCardBackground}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="База" Binding="{Binding Name}" Width="*"/>
-                    <DataGridTextColumn Header="Последний бэкап" Binding="{Binding LastBackup}" Width="200"/>
-                    <DataGridTextColumn Header="Размер" Binding="{Binding Size}" Width="120"/>
-                    <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="150"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
     </Grid>
 </Window>

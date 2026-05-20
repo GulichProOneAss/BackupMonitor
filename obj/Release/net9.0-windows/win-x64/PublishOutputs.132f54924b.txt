@@ -1,0 +1,2 @@
+D:\BackupMonitor\Publish\BackupMonitor.pdb
+D:\BackupMonitor\Publish\BackupMonitor.exe

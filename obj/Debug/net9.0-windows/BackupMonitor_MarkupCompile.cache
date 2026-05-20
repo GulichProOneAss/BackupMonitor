@@ -1,5 +1,5 @@
 ﻿BackupMonitor
-
+1.0.0.0
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR
 D:\BackupMonitor\App.xaml
 3-50297157
 221205875802
-62089417296
-214911016905
+8861956870
+216-121471246
 MainWindow.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;
 
-False
+True
 
